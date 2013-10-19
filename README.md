@@ -74,6 +74,7 @@ Please submit all issues and pull requests to the [chrisenytc/emyll](http://gith
 
 ## Release History
 
+ * 2013-10-19    v0.1.2   Fixed #1 restartService in lib/emyll.js.
  * 2013-10-19    v0.1.1   Fixed setPaths in lib/emyll.js.
  * 2013-10-19    v0.1.0   Initial Release.
 
