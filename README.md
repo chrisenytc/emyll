@@ -68,6 +68,15 @@ Vhost <domain> deleted successfully!
 
 Please submit all issues and pull requests to the [chrisenytc/emyll](http://github.com/chrisenytc/emyll) repository!
 
+## Screenshort
+
+[![Emyll](https://raw.github.com/chrisenytc/emyll/master/screenshort.png)](https://github.com/chrisenytc/emyll)
+
+## Release History
+
+ * 2013-10-19    v0.1.1   Fixed setPaths in lib/emyll.js.
+ * 2013-10-19    v0.1.0   Initial Release.
+
 ## License
 Copyright (c) 2013 Christopher EnyTC
 
@@ -91,14 +100,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-
-## Screenshort
-
-[![Emyll](https://raw.github.com/chrisenytc/emyll/master/screenshort.png)](https://github.com/chrisenytc/emyll)
-
-## Release History
-
- * 2013-10-19    v0.1.1   Fixed setPaths in lib/emyll.js.
- * 2013-10-19    v0.1.0   Initial Release.
-
----
