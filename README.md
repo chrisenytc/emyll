@@ -94,10 +94,11 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 ## Screenshort
 
-[![Emyll](screenshort.png)](https://github.com/chrisenytc/emyll)
+[![Emyll](https://raw.github.com/chrisenytc/emyll/master/screenshort.png)](https://github.com/chrisenytc/emyll)
 
 ## Release History
 
+ * 2013-10-19    v0.1.1   Fixed setPaths in lib/emyll.js.
  * 2013-10-19    v0.1.0   Initial Release.
 
 ---

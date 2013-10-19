@@ -31,15 +31,15 @@ program
 				if(value == 'apache')
 				{
 					promptly.prompt('Apache Path: ', function (err, realpath) {
-						emyll.setPaths(path, '/etc/nginx/');
+						emyll.setPaths(realpath, '/etc/nginx/');
 						emyll.grantPermissions(path.normalize(realpath+'/sites-available/'));
 						emyll.grantPermissions(path.normalize(realpath+'/sites-enabled/'));
 					});
 				}
 				else
 				{
-					promptly.prompt('Nginx Path: ', function (err, path) {
-						emyll.setPaths('/etc/apache2/', path);
+					promptly.prompt('Nginx Path: ', function (err, realpath) {
+						emyll.setPaths('/etc/apache2/', realpath);
 						emyll.grantPermissions(path.normalize(realpath+'/sites-available/'));
 						emyll.grantPermissions(path.normalize(realpath+'/sites-enabled/'));
 					});
@@ -55,14 +55,10 @@ program
    .command('create')
    .description('Create Vhosts for Apache or Nginx'.white)
    .action(function(){
-	 		var data = [];
 			promptly.prompt('Domain: ', function (err, domain) {
-				data['domain'] = domain;
 				promptly.prompt('DocumentRoot: ', function (err, documentRoot) {
-					data['root'] = documentRoot;
 					promptly.choose('Choose your server: (apache|nginx)', ['apache', 'nginx'], function (err, value) {
-						data['server'] = value;
-							emyll.createVhosts(data['domain'], data['root'], data['server']);
+							emyll.createVhosts(domain, documentRoot, value);
 					});
 				});
 			});

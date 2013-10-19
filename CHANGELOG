@@ -1,3 +1,7 @@
+v0.1.1:
+  date: 2013-10-19
+  changes:
+    - Fixed setPaths in lib/emyll.js.
 v0.1.0:
   date: 2013-10-19
   changes:
