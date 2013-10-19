@@ -1,0 +1,116 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('commander');
+var emyll = require('..');
+var path = require('path');
+var ver = require('../package.json').version;
+var promptly = require('promptly');
+require('colors');
+
+/*
+* Emyll Bootstrap 
+*/
+
+program
+  .version(ver, '-v, --version')
+  .usage('command [option]'.white);
+
+/*
+* Emyll Set Settings
+*/
+
+program
+ .command('init')
+ .description('Configure emyll to work'.white)
+ .action(function(){
+		promptly.choose('Choose your server: (apache|nginx)', ['apache', 'nginx'], function (err, value) {
+				if(value == 'apache')
+				{
+					promptly.prompt('Apache Path: ', function (err, realpath) {
+						emyll.setPaths(path, '/etc/nginx/');
+						emyll.grantPermissions(path.normalize(realpath+'/sites-available/'));
+						emyll.grantPermissions(path.normalize(realpath+'/sites-enabled/'));
+					});
+				}
+				else
+				{
+					promptly.prompt('Nginx Path: ', function (err, path) {
+						emyll.setPaths('/etc/apache2/', path);
+						emyll.grantPermissions(path.normalize(realpath+'/sites-available/'));
+						emyll.grantPermissions(path.normalize(realpath+'/sites-enabled/'));
+					});
+				}
+		});
+});
+
+/*
+* Emyll Create VHosts
+*/
+
+program
+   .command('create')
+   .description('Create Vhosts for Apache or Nginx'.white)
+   .action(function(){
+	 		var data = [];
+			promptly.prompt('Domain: ', function (err, domain) {
+				data['domain'] = domain;
+				promptly.prompt('DocumentRoot: ', function (err, documentRoot) {
+					data['root'] = documentRoot;
+					promptly.choose('Choose your server: (apache|nginx)', ['apache', 'nginx'], function (err, value) {
+						data['server'] = value;
+							emyll.createVhosts(data['domain'], data['root'], data['server']);
+					});
+				});
+			});
+});
+
+/*
+* Emyll Remove Domain
+*/
+
+program
+ .command('remove <domain>')
+ .description('Remove specified vhost [domain]'.white)
+ .action(function(domain){
+	 promptly.choose('Choose your server: (apache|nginx)', ['apache', 'nginx'], function (err, value) {
+			if(value == 'apache')
+			{
+				emyll.removeVhosts(domain, 'apache');
+			}
+			else
+			{
+				emyll.removeVhosts(domain, 'nginx');
+			}
+	 });
+});
+
+/*
+* Emyll on help ption show examples
+*/
+
+program.on('--help', function(){
+	console.log('  Examples:');
+	console.log('');
+	console.log('    $ emyll create');
+	console.log('    $ emyll remove emyll.dev');
+	console.log('');
+});
+
+/*
+* Emyll Process Parser
+*/
+
+program.parse(process.argv);
+
+/*
+* Emyll Default Action
+*/
+
+if(process.argv.length == 2)
+{
+	program.help();
+}
