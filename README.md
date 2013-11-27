@@ -1,4 +1,4 @@
-# Emyll [![Build Status](https://secure.travis-ci.org/chrisenytc/emyll.png?branch=master)](http://travis-ci.org/chrisenytc/emyll) [![Dependency Status](https://gemnasium.com/chrisenytc/emyll.png)](https://gemnasium.com/chrisenytc/emyll) [![NPM version](https://badge.fury.io/js/emyll.png)](http://badge.fury.io/js/emyll) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chrisenytc/emyll/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+# Emyll [![Build Status](https://secure.travis-ci.org/chrisenytc/emyll.png?branch=master)](http://travis-ci.org/chrisenytc/emyll) [![Dependency Status](https://gemnasium.com/chrisenytc/emyll.png)](https://gemnasium.com/chrisenytc/emyll) [![NPM version](https://badge-me.herokuapp.com/api/npm/emyll.png)](http://badges.enytc.com/for/npm/emyll) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chrisenytc/emyll/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Virtual Hosts Manager for Apache and Nginx
 
